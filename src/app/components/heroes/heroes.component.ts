@@ -19,7 +19,12 @@ export class HeroesComponent implements OnInit {
 		console.log(this.heroes);
 	}
 
-	infoHeroe(id: number) {
+	infoHeroe(id: number): Heroe {
 		this.router.navigate(['/infoheroe', id]);
+		for (let i = 0; i < this.heroes.length; i++) {
+			if ((this.heroes[i].id = i)) {
+				return this.heroes[i];
+			}
+		}
 	}
 }

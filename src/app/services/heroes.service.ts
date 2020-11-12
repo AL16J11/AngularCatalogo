@@ -76,6 +76,28 @@ export class HeroesService {
 	getHeroes(): Heroe[] {
 		return this.heroes;
 	}
+
+	getInfoHeroe(id: number) {
+		for (let i = 0; i < this.heroes.length; i++) {
+			if (this.heroes[i].id == id) {
+				console.log('entre en pinche if ' + this.heroes[i].nombre);
+				return this.heroes[i];
+			}
+		}
+	}
+
+	buscarHeroes(textbox: string) {
+		let heroesEncontrado: Heroe[] = [];
+		textbox = textbox.toLowerCase();
+		for (let heroe of this.heroes) {
+			let nombre = heroe.nombre.toLowerCase();
+			if (nombre.indexOf(textbox) >= 0) {
+				heroesEncontrado.push(heroe);
+			}
+		}
+		console.log('Héroes Encontrados con el nombre  ' + heroesEncontrado);
+		return heroesEncontrado;
+	}
 }
 
 export interface Heroe {

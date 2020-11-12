@@ -1,4 +1,7 @@
-<h1 class="animated fadeIn">HEROES DE DC Y MARVEL</h1>
+<h1 *ngIf="heroes.length > 0" class="animated fadeIn mt-2">Héroe encontrado</h1>
+<div class="alert alert-danger mt-2" *ngIf="heroes.length == 0" role="alert">
+	<strong>No se ha encontrado héroe con el nombre {{ name }} </strong>
+</div>
 <div class="card-columns">
 	<div class="card animated fadeIn fast" *ngFor="let valHeroe of heroes">
 		<img class="card-img-top img-fluid" [src]="valHeroe.img" [alt]="valHeroe.nombre" />
