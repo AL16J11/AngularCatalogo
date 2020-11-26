@@ -1,29 +1,13 @@
-<h1 *ngIf="heroes.length > 0" class="animated fadeIn mt-2">Héroe encontrado</h1>
-<div class="alert alert-danger mt-2" *ngIf="heroes.length == 0" role="alert">
+<h1 *ngIf="heroes.length > 0" class="animated fadeIn mt-2">
+	Héroe encontrado {{ name }}
+</h1>
+<div
+	class="alert alert-danger mt-2 animated fadeIn fast"
+	*ngIf="heroes.length == 0"
+	role="alert"
+>
 	<strong>No se ha encontrado héroe con el nombre {{ name }} </strong>
 </div>
-<div class="card-columns">
-	<div class="card animated fadeIn fast" *ngFor="let valHeroe of heroes">
-		<img class="card-img-top img-fluid" [src]="valHeroe.img" [alt]="valHeroe.nombre" />
-		<div class="card-body">
-			<h4 class="card-title">{{ valHeroe.nombre }}</h4>
-			<p class="card-text">{{ valHeroe.bio }}</p>
-			<p class="card-text">
-				<small class="text-muted">{{ valHeroe.aparacion }}</small>
-			</p>
-			<a
-				[routerLink]="['/infoheroe', valHeroe.id]"
-				class="btn btn-outline-secondary btn-block"
-				>Ver mas
-			</a>
-			<button
-				(click)="infoHeroe(valHeroe.id)"
-				type="button"
-				name="verHeroe"
-				class="btn btn-secondary btn-lg btn-block"
-			>
-				Mas información
-			</button>
-		</div>
-	</div>
+<div class="card-columns fadeIn fast">
+	<app-heroe-tarjeta [valHeroe]="heroe" *ngFor="let heroe of heroes"></app-heroe-tarjeta>
 </div>

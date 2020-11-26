@@ -7,7 +7,7 @@ import { Heroe, HeroesService } from '../../services/heroes.service';
 	templateUrl: './buscador.component.html',
 })
 export class BuscadorComponent implements OnInit {
-	heroes: Heroe[];
+	heroes: Heroe[] = [];
 	name: any;
 
 	constructor(

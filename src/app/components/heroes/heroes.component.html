@@ -1,26 +1,8 @@
 <h1 class="animated fadeIn">HEROES DE DC Y MARVEL</h1>
 <div class="card-columns">
-	<div class="card animated fadeIn fast" *ngFor="let valHeroe of heroes">
-		<img class="card-img-top img-fluid" [src]="valHeroe.img" [alt]="valHeroe.nombre" />
-		<div class="card-body">
-			<h4 class="card-title">{{ valHeroe.nombre }}</h4>
-			<p class="card-text">{{ valHeroe.bio }}</p>
-			<p class="card-text">
-				<small class="text-muted">{{ valHeroe.aparacion }}</small>
-			</p>
-			<a
-				[routerLink]="['/infoheroe', valHeroe.id]"
-				class="btn btn-outline-secondary btn-block"
-				>Ver mas
-			</a>
-			<button
-				(click)="infoHeroe(valHeroe.id)"
-				type="button"
-				name="verHeroe"
-				class="btn btn-secondary btn-lg btn-block"
-			>
-				Mas información
-			</button>
-		</div>
-	</div>
+	<app-heroe-tarjeta
+		(heroeSeleccionado)="infoHeroePadre($event)"
+		[valHeroe]="heroe"
+		*ngFor="let heroe of heroes"
+	></app-heroe-tarjeta>
 </div>

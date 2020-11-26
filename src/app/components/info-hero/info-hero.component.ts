@@ -13,8 +13,6 @@ export class InfoHeroComponent {
 		private _heroeService: HeroesService
 	) {
 		this.activatedRoute.params.subscribe((parametros) => {
-			console.log('este es el parametro que obtengo en infoheroe ' + parametros['id']);
-			console.log(this._heroeService.getInfoHeroe(parametros['id']));
 			this.heroe = this._heroeService.getInfoHeroe(parametros['id']);
 		});
 	}
